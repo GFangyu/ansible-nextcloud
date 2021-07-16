@@ -1,5 +1,5 @@
 - name: Nextcloud
-  hosts: all
+  hosts: localhost
   become: yes
   become_method: sudo 
   vars_files:
