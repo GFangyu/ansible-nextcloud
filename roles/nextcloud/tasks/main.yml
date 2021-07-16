@@ -77,13 +77,13 @@
 - name: Set Up a NextCloud cron Job 
   cron:
     name: "Nextcloud cron"
-    minute: "*/15"
+    minute: "*/5"
     hour: "*"
     day: "*"
     month: "*"
     weekday: "*"
     user: "{{nextcloud_owner}}"
-    job: "occ system:cron"
+    job: "php -f /data/wwwroot/nextcloud/cron.php"
 
 # 系统通用
 
