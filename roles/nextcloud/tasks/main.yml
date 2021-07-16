@@ -12,7 +12,7 @@
     nextcloud_db_password: "{{mysql_root_password}}"
 
 - debug:
-    msg: runtime {{ nextcloud_vhost_dir }}, {{nextcloud_vhost_src}}, {{nextcloud_service}}, {{nextcloud_owner}}, {{nextcloud_webs}}, {{ansible_distribution}}
+  msg: runtime {{ nextcloud_vhost_dir }}, {{nextcloud_vhost_src}}, {{nextcloud_service}}, {{nextcloud_owner}}, {{nextcloud_webs}}, {{ansible_distribution}}
 
 # NextCloud
 - name: Remove extra dir
@@ -42,11 +42,11 @@
   with_items:
     - {src: /usr/local/bin/occ, dest: /usr/bin/occ}
  
- - name: Change directory ownership and group ownership
+- name: Change directory ownership and group ownership
   shell: chown -R {{nextcloud_owner}}:{{nextcloud_owner}} /data/wwwroot
 
 - name: Install NextCloud (Automaticall generate configuration files)
-    shell: |
+  shell: |
         occ maintenance:install \
         --database "mysql" \
         --database-name "{{nextcloud_db_name}}" \
