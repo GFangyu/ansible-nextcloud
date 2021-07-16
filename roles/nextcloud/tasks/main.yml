@@ -12,7 +12,7 @@
     nextcloud_db_password: "{{mysql_root_password}}"
 
 - debug:
-  msg: runtime {{ nextcloud_vhost_dir }}, {{nextcloud_vhost_src}}, {{nextcloud_service}}, {{nextcloud_owner}}, {{nextcloud_webs}}, {{ansible_distribution}}
+    msg: runtime {{ nextcloud_vhost_dir }}, {{nextcloud_vhost_src}}, {{nextcloud_service}}, {{nextcloud_owner}}, {{nextcloud_webs}}, {{ansible_distribution}}
 
 # NextCloud
 - name: Remove extra dir
