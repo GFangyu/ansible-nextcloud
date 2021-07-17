@@ -57,16 +57,9 @@
 
 - name: Configure Caching and File Locking
   shell: |
-    occ config:system:set \
-    memcache.local \
-    --value '\OC\Memcache\APCu'
-    occ config:system:set \
-    memcache.locking \
-    --value '\OC\Memcache\Redis'
-    occ config:system:set \
-    redis \
-    --value '{"host": "127.0.0.1", "port": "6379"}' \
-    --type json
+    sed -i "/'instanceid' => 'ocrlwxc5t9ve',/ a\  'memcache.local' => '\OC\Memcache\APCu'," /data/wwwroot/nextcloud/config/config.php
+    sed -i "/'memcache.local' => '\OC\Memcache\APCu',/ a\  'memcache.locking' => '\OC\Memcache\Redis'," /data/wwwroot/nextcloud/config/config.php
+
 
 - name: Set Up a NextCloud cron Job 
   cron:
