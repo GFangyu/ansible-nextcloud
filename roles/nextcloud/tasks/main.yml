@@ -57,9 +57,7 @@
 
 - name: Configure Caching and File Locking
   shell: |
-    sed -i "/'instanceid' => 'ocrlwxc5t9ve',/ a\  'memcache.local' => '\OC\Memcache\APCu'," /data/wwwroot/nextcloud/config/config.php
-    sed -i "/'memcache.local' => '\OC\Memcache\APCu',/ a\  'memcache.locking' => '\OC\Memcache\Redis'," /data/wwwroot/nextcloud/config/config.php
-
+    sed -i '22 r ~/ansible-nextcloud/memcahe' /data/wwwroot/nextcloud/config/config.php
 
 - name: Set Up a NextCloud cron Job 
   cron:
