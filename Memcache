@@ -1,0 +1,9 @@
+  'memcache.local' => '\OC\Memcache\APCu',
+  'memcache.distributed' => '\OC\Memcache\Redis',
+  'redis' => [
+       'host'     => '/var/run/redis/redis.sock',
+       'port'     => 0,
+       'dbindex'  => 0,
+       'password' => 'secret',
+       'timeout'  => 1.5,
+  ],
