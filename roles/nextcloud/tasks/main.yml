@@ -57,7 +57,8 @@
 
 - name: Configure Caching and File Locking
   shell: |
-    sed -i '22 r ~/ansible-nextcloud/memcahe' /data/wwwroot/nextcloud/config/config.php
+    mv ~/ansible-nextcloud/memcahe /data/wwwroot/nextcloud/config
+    sed -i '22 r /data/wwwroot/nextcloud/config/memcahe' /data/wwwroot/nextcloud/config/config.php
 
 - name: Set Up a NextCloud cron Job 
   cron:
