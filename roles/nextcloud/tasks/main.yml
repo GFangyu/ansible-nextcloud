@@ -33,8 +33,6 @@
     src: occ
     dest: /usr/bin/occ
     mode: u+x,g+x,o+x
-
-
  
 - name: Change directory ownership and group ownership
   shell: chown -R {{nextcloud_owner}}:{{nextcloud_owner}} /data/wwwroot
@@ -54,6 +52,9 @@
     public_ip=`wget -O - https://download.websoft9.com/ansible/get_ip.sh | bash`
     occ config:system:set trusted_domains 1 --value="$public_ip"
 
+- name: Create Memcahe Locking Data
+  shell: |
+  cd /data/wwwroot/
 
 - name: Configure Caching and File Locking
   shell: |
